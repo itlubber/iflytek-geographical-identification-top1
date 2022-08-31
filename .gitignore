@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# itlubber
+*.DS_Store
+user_data/roberta-base-finetuned-cluener2020-chinese/pytorch_model.bin

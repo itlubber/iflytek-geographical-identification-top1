@@ -1,0 +1,10 @@
+torch=1.8.1+cu101
+torchvision=0.9.1+cu101
+transformers=4.15.0
+tqdm
+numpy=1.21.5
+pandas=1.4.1
+zhon=1.1.5
+jieba=0.42.1
+dgl-cu101=0.6.1
+scikit-learn
