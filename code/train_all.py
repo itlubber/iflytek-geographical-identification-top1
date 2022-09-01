@@ -90,9 +90,9 @@ train_data_df['label'] = train_data_df['label'].apply(lambda x: str(x))
 ner_train_dataset = Dataset(train_data_df)
 
 
-promot = None
+prompt = None
 tokenizer = Tokenizer(vocab='../user_data/roberta-base-finetuned-cluener2020-chinese', max_seq_len=52)
-ner_train_dataset.convert_to_ids(tokenizer, promot=promot)
+ner_train_dataset.convert_to_ids(tokenizer, prompt=prompt)
 
 
 config = W2NERBertConfig.from_pretrained('../user_data/roberta-base-finetuned-cluener2020-chinese', num_labels=len(ner_train_dataset.cat2id))

@@ -100,9 +100,9 @@ train_data_df['label'] = train_data_df['label'].apply(lambda x: str(x))
 ner_train_dataset = Dataset(train_data_df)
 
 
-promot = None
+prompt = None
 tokenizer = Tokenizer(vocab='../user_data/roberta-base-finetuned-cluener2020-chinese', max_seq_len=52)
-ner_train_dataset.convert_to_ids(tokenizer, promot=promot)
+ner_train_dataset.convert_to_ids(tokenizer, prompt=prompt)
 
 
 config = W2NERBertConfig.from_pretrained('../user_data/roberta-base-finetuned-cluener2020-chinese', num_labels=len(ner_train_dataset.cat2id))
@@ -120,7 +120,7 @@ t_total = len(ner_train_dataset) // batch_size * num_epoches
 scheduler = get_default_cosine_schedule_with_warmup(optimizer, t_total, warmup_ratio=0.2)
 
 
-model = Task(dl_module, optimizer, 'ce', cude_device=2, scheduler=scheduler, grad_clip=5.0, ema_decay=0.995, fgm_attack=True, save_path="../user_data/outputs/roberta-finetuned-tta", )
+model = Task(dl_module, optimizer, 'ce', cude_device=2, scheduler=scheduler, grad_clip=5.0, ema_decay=0.995, fgm_attack=True, save_path="../user_data/outputs/roberta-finetuned-pseudo", )
 
 
 model.fit(ner_train_dataset, epochs=num_epoches, batch_size=batch_size, show_step=show_step)

@@ -160,7 +160,7 @@ class BaseDataset(Dataset):
 
         return pd.DataFrame(datasets)
 
-    def convert_to_ids(self, tokenizer, promot=None):
+    def convert_to_ids(self, tokenizer, prompt=None):
         """
         将文本转化成id的形式
 
@@ -170,7 +170,7 @@ class BaseDataset(Dataset):
         if tokenizer.tokenizer_type == 'vanilla':
             features = self._convert_to_vanilla_ids(tokenizer)
         elif tokenizer.tokenizer_type == 'transfomer':
-            features = self._convert_to_transfomer_ids(tokenizer, promot=promot)
+            features = self._convert_to_transfomer_ids(tokenizer, prompt=prompt)
         elif tokenizer.tokenizer_type == 'customized':
             features = self._convert_to_customized_ids(tokenizer)
         else:

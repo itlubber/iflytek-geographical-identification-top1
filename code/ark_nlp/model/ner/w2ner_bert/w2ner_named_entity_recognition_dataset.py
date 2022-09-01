@@ -45,7 +45,7 @@ class W2NERDataset(TokenClassificationDataset):
         text = text + "-#-{}".format(type)
         return text
 
-    def _convert_to_transfomer_ids(self, bert_tokenizer, promot=None):
+    def _convert_to_transfomer_ids(self, bert_tokenizer, prompt=None):
 
         features = []
 
@@ -53,7 +53,7 @@ class W2NERDataset(TokenClassificationDataset):
 
             tokens = bert_tokenizer.tokenize(row_['text'])[:bert_tokenizer.max_seq_len-2]
 
-            input_ids = bert_tokenizer.sequence_to_ids(tokens, promot=promot)
+            input_ids = bert_tokenizer.sequence_to_ids(tokens, prompt=prompt)
             input_ids, input_mask, segment_ids = input_ids
 
             # input_length 对应源码 sent_length

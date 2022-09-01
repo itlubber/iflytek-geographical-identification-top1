@@ -48,10 +48,10 @@ class IFW2NERPredictor(Predictor):
 
         return string.translate(table)
 
-    def predict_one_sample(self, text='', promot=None, cv=False):
+    def predict_one_sample(self, text='', prompt=None, cv=False):
         text = text.strip()
         
-        features = self._get_input_ids(E_trans_to_C(re.sub("[\(《：；→，。、\-”]+$", "", text)), promot=promot)
+        features = self._get_input_ids(E_trans_to_C(re.sub("[\(《：；→，。、\-”]+$", "", text)), prompt=prompt)
         self.module.eval()
 
         with torch.no_grad():
@@ -167,7 +167,7 @@ class IFW2NERPredictor(Predictor):
         return entities
 
 
-promot = None
+prompt = None
 test = pd.read_csv("../xfdata/疫情新闻中的地理位置信息识别挑战赛公开数据/test.csv", sep="\t")
 
 
@@ -184,7 +184,7 @@ predict_results = []
 
 for _line in tqdm(test["text"].tolist()):
     label = set()
-    for _preditc in ner_predictor_instance.predict_one_sample(_line, promot=promot):
+    for _preditc in ner_predictor_instance.predict_one_sample(_line, prompt=prompt):
         label.add(_preditc["entity"])
 
     predict_results.append(list(label))
