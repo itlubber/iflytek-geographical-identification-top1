@@ -54,9 +54,9 @@
 │   │   ├── nn
 │   │   └── processor
 │   ├── test.py                                             # 推理代码
-│   ├── test_tta.py                                         # 使用伪标签训练模型后的推理代码
+│   ├── test_pseudo.py                                         # 使用伪标签训练模型后的推理代码
 │   ├── train_all.py                                        # 全量数据训练模型代码
-│   └── train_all_tta.py                                    # 全量数据 + 伪标签 训练模型代码
+│   └── train_all_pseudo.py                                    # 全量数据 + 伪标签 训练模型代码
 ├── prediction_result
 ├── user_data
 │   ├── outputs                                             # 模型训练完保存的文件夹
@@ -73,13 +73,6 @@
         ├── sample_submit.csv
         ├── test.csv                                    # 测试集
         └── train.csv                                   # 训练集
-```
-
-
-### 提交代码结构
-
-```
-
 ```
 
 
