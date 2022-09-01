@@ -35,7 +35,7 @@
 
 前期把 [`ark-nlp`](https://github.com/xiangking/ark-nlp) 库中的 `ner` 方案基本都试了一遍，也实验了 [`bert4torch`](https://github.com/Tongjilibo/bert4torch) 里面的一些模型，比如 `UIE`， 也实验了下在文本首尾添加 `promot` 的方式，最终根据提交效果选择了最优的 `word2ner` 模型，同时对比了不同的预训练模型，包括 `nezha`、`roberta`、`bert` 以及其他在 `huggingface` 上的其他预训练模型，无论是 `base` 、 `large` 还是模型融合, 基本上都不如 [`uer/roberta-base-finetuned-cluener2020-chinese`](https://huggingface.co/uer/roberta-base-finetuned-cluener2020-chinese) 预训练模型微调直接预测结果好。
 
-### 原始代码结构
+### 代码结构
 
 ```bash
 .
