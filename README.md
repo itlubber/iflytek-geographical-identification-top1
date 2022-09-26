@@ -1,5 +1,13 @@
 # 疫情新闻中的地理位置识别挑战赛
 
+## 概要
+
+> 在科大讯飞疫情新闻中的地理位置识别挑战赛中，使用 w2ner 模型加载 uer/roberta-base-finetuned-cluener2020-chinese 预训练权重，在赛题数据集上进行训练，之后对测试集进行推理，最终测试集上的 jaccard_score 指标平均 0.909 左右，最高 0.9216，排行榜 TOP1。
+>
+> 代码开源地址：https://github.com/itlubber/iflytek-geographical-identification-top1
+>
+> 微信公众号推文：https://mp.weixin.qq.com/s/hxv7HwWF3RSm70n5P22fPA
+
 ## 赛事任务
 构建自然语言处理模型，对文本中的位置信息进行识别。
 
